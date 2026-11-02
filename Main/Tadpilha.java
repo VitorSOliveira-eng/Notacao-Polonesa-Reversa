@@ -34,4 +34,11 @@ public class TadPilha {
         this.topo--;
         return this.elementos[this.topo+1];
     }
+     
+    public int peek() {
+        if (estaVazio()) {
+            throw new IllegalStateException("Erro: A pilha está vazia");
+        }
+        return this.elementos[this.topo];
+    }
 }
