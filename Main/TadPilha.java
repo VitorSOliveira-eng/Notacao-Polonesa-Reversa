@@ -1,10 +1,10 @@
-public class TadPilha {
+public class TadPilha<T> {
     private int topo;
     private static final int TAMANHO = 100;
-    private int[] elementos;
+    private Object[] elementos;
 
     public TadPilha() {
-        this.elementos = new int[TAMANHO];
+        this.elementos = new Object[TAMANHO];
         this.topo = -1;
     }
 
@@ -16,7 +16,7 @@ public class TadPilha {
         return this.topo == -1;
     }
 
-    public void push(int elemento) {
+    public void push(T elemento) {
         if (estaCheio()) {
             throw new IllegalStateException("Erro: A pilha está cheia!");
         }
@@ -25,20 +25,20 @@ public class TadPilha {
         this.elementos[this.topo] = elemento;
     }
 
-    public int pop() {
+    public T pop() {
         if (estaVazio()) {
             throw new IllegalStateException("Erro: A pilha está vazia");
         }
 
     
         this.topo--;
-        return this.elementos[this.topo+1];
+        return (T) this.elementos[this.topo+1];
     }
      
-    public int peek() {
+    public T peek() {
         if (estaVazio()) {
             throw new IllegalStateException("Erro: A pilha está vazia");
         }
-        return this.elementos[this.topo];
+        return (T) this.elementos[this.topo];
     }
 }
