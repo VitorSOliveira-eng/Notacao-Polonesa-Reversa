@@ -44,7 +44,7 @@ public class LeitorExpressao {
         return true;
     }
     private boolean temParentesesBalanceados(String expressao) {
-        TadPilha pilha = new TadPilha();
+        TadPilha<Integer> pilha = new TadPilha<>();
         for (int i = 0; i < expressao.length(); i++) {
             char c = expressao.charAt(i);
             if (c == '(') {
