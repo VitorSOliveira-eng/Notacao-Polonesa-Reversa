@@ -11,7 +11,9 @@ public class LeitorExpressao {
         while (true) {
             System.out.print("Digite a expressão matemática (sem espaços): ");
             String expressao = scanner.nextLine();
-
+             if(expressao.isEmpty()){
+                System.out.println("Erro: a expressao esta vazia.");
+            }
             if (!temCaracteresValidos(expressao)) {
                 System.out.println("Erro: A expressão contém caracteres inválidos.");
                 continue;
@@ -29,11 +31,12 @@ public class LeitorExpressao {
 
             return expressao;
         }
+        }
 
     private boolean temCaracteresValidos(String expressao) {
     for (int i = 0; i < expressao.length(); i++) {
         char c = expressao.charAt(i);
-        if (c >= '0' && c <= '9' || c == '+' || c == '-' || c == '*' || c == '/' || c == '^') {
+        if (c >= '0' && c <= '9' || c == '+' || c == '-' || c == '*' || c == '/' || c == '^'|| c== '(' || c == ')') {
         } else {
              return false;
          }
@@ -64,6 +67,9 @@ public class LeitorExpressao {
 
     private boolean temSintaxeCorreta(String expressao) {
         char primeiro = expressao.charAt(0);
+        if(expressao.isEmpty()){
+               return false;
+            }
         if (primeiro == '+' || primeiro == '-' || primeiro == '*' || primeiro == '/' || primeiro == '^' || primeiro == ')') {
             return false;
         }
@@ -86,6 +92,11 @@ public class LeitorExpressao {
             }
             if (atual == '+' || atual == '-' || atual == '*' || atual == '/' || atual == '^' ){
                 if(proximo == '+' || proximo == '-' ||proximo == '*' || proximo== '/' || proximo == '^' || proximo == ')'){
+                    return false;
+                }
+            }
+            if(atual >= '0' && atual <= '9'){
+                if(proximo == '('){
                     return false;
                 }
             }
