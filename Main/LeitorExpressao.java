@@ -29,4 +29,15 @@ public class LeitorExpressao {
 
             return expressao;
         }
+
+    private boolean temCaracteresValidos(String expressao) {
+    for (int i = 0; i < expressao.length(); i++) {
+        char c = expressao.charAt(i);
+        if (c >= '0' && c <= '9' || c == '+' || c == '-' || c == '*' || c == '/' || c == '^') {
+        } else {
+             return false;
+         }
+        }
+        return true;
+    }
     }
