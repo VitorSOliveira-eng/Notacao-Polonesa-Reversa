@@ -1,3 +1,6 @@
+// lINK DO REPOSITORIO: https://github.com/VitorSOliveira-eng/Notacao-Polonesa-Reversa
+// Vitor Silva de Oliveira e Mateus Carvalho Costa
+
 import java.util.Scanner;
 
 public class Main {
