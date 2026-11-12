@@ -13,6 +13,7 @@ public class LeitorExpressao {
             String expressao = scanner.nextLine();
              if(expressao.isEmpty()){
                 System.out.println("Erro: a expressao esta vazia.");
+                 continue;
             }
             if (!temCaracteresValidos(expressao)) {
                 System.out.println("Erro: A expressão contém caracteres inválidos.");
